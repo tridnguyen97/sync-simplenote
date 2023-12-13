@@ -5,7 +5,7 @@ description = "sync recently modified notes in Simplenote to Notion."
 authors = ["tridn <tridnguyen97@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "sync_simplenote"}]
+packages = [{include = "app"}]
 
 [tool.poetry.dependencies]
 python = "^3.8, ^3.9, ^3.10"
