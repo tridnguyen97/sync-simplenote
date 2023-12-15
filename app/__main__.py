@@ -4,7 +4,7 @@ from PyQt6.QtGui import QFontDatabase, QFont, QIcon
 from PyQt6.QtCore import QFile, QTextStream, QTranslator, QLocale
 from PyQt6.QtWidgets import QApplication
 
-from views.MainWindow import MainWindow
+from app.views.MainWindow import MainWindow
 
 
 def main():
