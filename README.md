@@ -22,3 +22,9 @@ poetry run dev
 ```
 poetry run build
 ```
+
+## Miscellaneous
+To create or modify qt designer files, pyside6 designer tool can be used:
+```
+poetry run pyside6-designer <filename>.ui
+```
