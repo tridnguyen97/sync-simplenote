@@ -257,16 +257,6 @@ files = [
 ]
 
 [[package]]
-name = "docopt"
-version = "0.6.2"
-description = "Pythonic argument parser, that will make you smile"
-optional = false
-python-versions = "*"
-files = [
-    {file = "docopt-0.6.2.tar.gz", hash = "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"},
-]
-
-[[package]]
 name = "docutils"
 version = "0.20.1"
 description = "Docutils -- Python Documentation Utilities"
@@ -358,6 +348,25 @@ files = [
     {file = "imagesize-1.4.1-py2.py3-none-any.whl", hash = "sha256:0d8d18d08f840c19d0ee7ca1fd82490fdc3729b7ac93f49870406ddde8ef8d8b"},
     {file = "imagesize-1.4.1.tar.gz", hash = "sha256:69150444affb9cb0d5cc5a92b3676f0b2fb7cd9ae39e947a5e11a36b4497cd4a"},
 ]
+
+[[package]]
+name = "importlib-metadata"
+version = "7.0.0"
+description = "Read metadata from Python packages"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "importlib_metadata-7.0.0-py3-none-any.whl", hash = "sha256:d97503976bb81f40a193d41ee6570868479c69d5068651eb039c40d850c59d67"},
+    {file = "importlib_metadata-7.0.0.tar.gz", hash = "sha256:7fc841f8b8332803464e5dc1c63a2e59121f46ca186c0e2e182e80bf8c1319f7"},
+]
+
+[package.dependencies]
+zipp = ">=0.5"
+
+[package.extras]
+docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (<7.2.5)", "sphinx (>=3.5)", "sphinx-lint"]
+perf = ["ipython"]
+testing = ["flufl.flake8", "importlib-resources (>=1.3)", "packaging", "pyfakefs", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy (>=0.9.1)", "pytest-perf (>=0.9.2)", "pytest-ruff"]
 
 [[package]]
 name = "iniconfig"
@@ -624,53 +633,40 @@ mccabe = ">=0.6,<0.8"
 platformdirs = ">=2.2.0"
 tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
 tomlkit = ">=0.10.1"
+typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 spelling = ["pyenchant (>=3.2,<4.0)"]
 testutils = ["gitpython (>3)"]
 
 [[package]]
-name = "pyqt-distutils"
-version = "0.7.3"
-description = "A set of distutils extension for building Qt ui files"
-optional = false
-python-versions = "*"
-files = [
-    {file = "pyqt-distutils-0.7.3.tar.gz", hash = "sha256:ee5b8c30d3b0a473a5c23e43b2a29ce8e47fa7b48d8dc91816953da37bc053e8"},
-    {file = "pyqt_distutils-0.7.3-py2.py3-none-any.whl", hash = "sha256:74ed14c5e41ef2941879c788a848c50b9288ea4e8d3e1abd669be4ed864c727f"},
-]
-
-[package.dependencies]
-docopt = "*"
-
-[[package]]
 name = "pyqt6"
-version = "6.6.1"
+version = "6.4.2"
 description = "Python bindings for the Qt cross platform application toolkit"
 optional = false
 python-versions = ">=3.6.1"
 files = [
-    {file = "PyQt6-6.6.1-cp38-abi3-macosx_10_14_universal2.whl", hash = "sha256:6b43878d0bbbcf8b7de165d305ec0cb87113c8930c92de748a11c473a6db5085"},
-    {file = "PyQt6-6.6.1-cp38-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:5aa0e833cb5a79b93813f8181d9f145517dd5a46f4374544bcd1e93a8beec537"},
-    {file = "PyQt6-6.6.1-cp38-abi3-win_amd64.whl", hash = "sha256:03a656d5dc5ac31b6a9ad200f7f4f7ef49fa00ad7ce7a991b9bb691617141d12"},
-    {file = "PyQt6-6.6.1.tar.gz", hash = "sha256:9f158aa29d205142c56f0f35d07784b8df0be28378d20a97bcda8bd64ffd0379"},
+    {file = "PyQt6-6.4.2-cp37-abi3-macosx_10_14_universal2.whl", hash = "sha256:c128bc0f17833e324593e3db83e99470d451a197dd17ff0333927b946c935bd9"},
+    {file = "PyQt6-6.4.2-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:18d1daf98d9236d55102cdadafd1056f5802f3c9288fcf7238569937b71a89f0"},
+    {file = "PyQt6-6.4.2-cp37-abi3-win_amd64.whl", hash = "sha256:25bd399b4a95dce65d5f937c1aa85d3c7e14a21745ae2a4ca14c0116cd104290"},
+    {file = "PyQt6-6.4.2.tar.gz", hash = "sha256:740244f608fe15ee1d89695c43f31a14caeca41c4f02ac36c86dfba4a5d5813d"},
 ]
 
 [package.dependencies]
-PyQt6-Qt6 = ">=6.6.0"
-PyQt6-sip = ">=13.6,<14"
+PyQt6-Qt6 = ">=6.4.0"
+PyQt6-sip = ">=13.4,<14"
 
 [[package]]
 name = "pyqt6-qt6"
-version = "6.6.1"
+version = "6.4.3"
 description = "The subset of a Qt installation needed by PyQt6."
 optional = false
 python-versions = "*"
 files = [
-    {file = "PyQt6_Qt6-6.6.1-py3-none-macosx_10_14_x86_64.whl", hash = "sha256:0409aa09b8dae90d5f00ba2d9761e671dfbc54ab169cff8f4cdfecd7f664fd0f"},
-    {file = "PyQt6_Qt6-6.6.1-py3-none-macosx_11_0_arm64.whl", hash = "sha256:8dcac0bd9df13d63deafb6a61969b832c34467da4a28d2b7abf78066bfce22e6"},
-    {file = "PyQt6_Qt6-6.6.1-py3-none-manylinux_2_28_x86_64.whl", hash = "sha256:e7df8851c93886412d890d0ecc62b39f42521861ee7a80982136d65903e1f2c5"},
-    {file = "PyQt6_Qt6-6.6.1-py3-none-win_amd64.whl", hash = "sha256:41f1ed3eadc00540c205a0e897ae0e0fffc21b896e575214f7c5b9c86d2037d1"},
+    {file = "PyQt6_Qt6-6.4.3-py3-none-macosx_10_14_x86_64.whl", hash = "sha256:b133bbc53e1cc05aafd78bfd3a577826481a976021d041c1c57d7dadc7de1c11"},
+    {file = "PyQt6_Qt6-6.4.3-py3-none-macosx_11_0_arm64.whl", hash = "sha256:27cc19976c872ae7111fcab8a9e9eae8c5ec5e55bfb6938a379551148b85f5b0"},
+    {file = "PyQt6_Qt6-6.4.3-py3-none-manylinux_2_28_x86_64.whl", hash = "sha256:96f30cca49af18f6863c66576b90f2f29987dc35397994d0575b197226c5b328"},
+    {file = "PyQt6_Qt6-6.4.3-py3-none-win_amd64.whl", hash = "sha256:b0151097aa93235676c0f83ce23916ee31ca8584bd1b45923725068404542cc2"},
 ]
 
 [[package]]
@@ -702,6 +698,57 @@ files = [
     {file = "PyQt6_sip-13.6.0-cp39-cp39-win_amd64.whl", hash = "sha256:33ea771fe777eb0d1a2c3ef35bcc3f7a286eb3ff09cd5b2fdd3d87d1f392d7e8"},
     {file = "PyQt6_sip-13.6.0.tar.gz", hash = "sha256:2486e1588071943d4f6657ba09096dc9fffd2322ad2c30041e78ea3f037b5778"},
 ]
+
+[[package]]
+name = "pyside6"
+version = "6.6.1"
+description = "Python bindings for the Qt cross-platform application and UI framework"
+optional = false
+python-versions = "<3.13,>=3.8"
+files = [
+    {file = "PySide6-6.6.1-cp38-abi3-macosx_11_0_universal2.whl", hash = "sha256:3c348948fe3957b18164c9c7b8942fe065bdb39648b326f212bc114326679fa9"},
+    {file = "PySide6-6.6.1-cp38-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:0a67587c088cb80e90d4ce3023b02466ea858c93a6dc9c4e062b13314e03d464"},
+    {file = "PySide6-6.6.1-cp38-abi3-manylinux_2_31_aarch64.whl", hash = "sha256:ed3822150f0d7a06b68bf4ceebe287515b5e8309bb256e9b49ae405afd062b18"},
+    {file = "PySide6-6.6.1-cp38-abi3-win_amd64.whl", hash = "sha256:3593d605175e83e6952cf3b428ecc9c146af97effb36de921ecf3da2752de082"},
+]
+
+[package.dependencies]
+PySide6-Addons = "6.6.1"
+PySide6-Essentials = "6.6.1"
+shiboken6 = "6.6.1"
+
+[[package]]
+name = "pyside6-addons"
+version = "6.6.1"
+description = "Python bindings for the Qt cross-platform application and UI framework (Addons)"
+optional = false
+python-versions = "<3.13,>=3.8"
+files = [
+    {file = "PySide6_Addons-6.6.1-cp38-abi3-macosx_11_0_universal2.whl", hash = "sha256:7cb7af1b050c40f7ac891b0e61c758c1923863173932f5b92dc47bdfb4158b42"},
+    {file = "PySide6_Addons-6.6.1-cp38-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:a0982da4033319667f9df5ed6fa8eff300a88216aec103a1fff6751a172b19a0"},
+    {file = "PySide6_Addons-6.6.1-cp38-abi3-manylinux_2_31_aarch64.whl", hash = "sha256:5a63a8a943724ce5acd2df72e5ab04982b6906963278cbabb216656b9a26ee18"},
+    {file = "PySide6_Addons-6.6.1-cp38-abi3-win_amd64.whl", hash = "sha256:a223575c81e9a13173136c044c3447e25f6d656b462b4d71fc3c6bd9c935a709"},
+]
+
+[package.dependencies]
+PySide6-Essentials = "6.6.1"
+shiboken6 = "6.6.1"
+
+[[package]]
+name = "pyside6-essentials"
+version = "6.6.1"
+description = "Python bindings for the Qt cross-platform application and UI framework (Essentials)"
+optional = false
+python-versions = "<3.13,>=3.8"
+files = [
+    {file = "PySide6_Essentials-6.6.1-cp38-abi3-macosx_11_0_universal2.whl", hash = "sha256:0c8917b15236956957178a8c9854641b12b11dad79ba0caf26147119164c30cf"},
+    {file = "PySide6_Essentials-6.6.1-cp38-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:c7185616083eab6f42eaed598d97d49fac4f60ae2e7415194140d54f58c2b42c"},
+    {file = "PySide6_Essentials-6.6.1-cp38-abi3-manylinux_2_31_aarch64.whl", hash = "sha256:a383c3d60298392cfb621ec1a0cf24b4799321e6c5bbafc021d4cc8076ea1315"},
+    {file = "PySide6_Essentials-6.6.1-cp38-abi3-win_amd64.whl", hash = "sha256:13da926e9e9ee3e26e3f66883a9d5e43726ddee70cdabddca02a07aa1ccf9484"},
+]
+
+[package.dependencies]
+shiboken6 = "6.6.1"
 
 [[package]]
 name = "pytest"
@@ -830,6 +877,19 @@ testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8-2020", "ini2toml[l
 testing-integration = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "packaging (>=23.1)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
+name = "shiboken6"
+version = "6.6.1"
+description = "Python/C++ bindings helper module"
+optional = false
+python-versions = "<3.13,>=3.8"
+files = [
+    {file = "shiboken6-6.6.1-cp38-abi3-macosx_11_0_universal2.whl", hash = "sha256:d756fd1fa945b787e8eef142f2eb571da0b4c4dc2f2eec1a7c12a474a2cf84e4"},
+    {file = "shiboken6-6.6.1-cp38-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:fb102e4bc210006f0cdd0ce38e1aaaaf792bd871f02a2b3f01d07922c5cf4c59"},
+    {file = "shiboken6-6.6.1-cp38-abi3-manylinux_2_31_aarch64.whl", hash = "sha256:a605960e72af5eef915991cee7eef4cc72f5cabe63b9ae1a955ceb3d3b0a00b9"},
+    {file = "shiboken6-6.6.1-cp38-abi3-win_amd64.whl", hash = "sha256:072c35c4fe46ec13b364d9dc47b055bb2277ee3aeaab18c23650280ec362f62a"},
+]
+
+[[package]]
 name = "snowballstemmer"
 version = "2.2.0"
 description = "This package provides 29 stemmers for 28 languages generated from Snowball algorithms."
@@ -857,6 +917,7 @@ babel = ">=2.9"
 colorama = {version = ">=0.4.5", markers = "sys_platform == \"win32\""}
 docutils = ">=0.18.1,<0.21"
 imagesize = ">=1.3"
+importlib-metadata = {version = ">=4.8", markers = "python_version < \"3.10\""}
 Jinja2 = ">=3.0"
 packaging = ">=21.0"
 Pygments = ">=2.14"
@@ -1080,7 +1141,22 @@ platformdirs = ">=3.9.1,<5"
 docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx (>=7.1.2)", "sphinx-argparse (>=0.4)", "sphinxcontrib-towncrier (>=0.2.1a0)", "towncrier (>=23.6)"]
 test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7)", "packaging (>=23.1)", "pytest (>=7.4)", "pytest-env (>=0.8.2)", "pytest-freezer (>=0.4.8)", "pytest-mock (>=3.11.1)", "pytest-randomly (>=3.12)", "pytest-timeout (>=2.1)", "setuptools (>=68)", "time-machine (>=2.10)"]
 
+[[package]]
+name = "zipp"
+version = "3.17.0"
+description = "Backport of pathlib-compatible object wrapper for zip files"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "zipp-3.17.0-py3-none-any.whl", hash = "sha256:0e923e726174922dce09c53c59ad483ff7bbb8e572e00c7f7c46b88556409f31"},
+    {file = "zipp-3.17.0.tar.gz", hash = "sha256:84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"},
+]
+
+[package.extras]
+docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (<7.2.5)", "sphinx (>=3.5)", "sphinx-lint"]
+testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-ignore-flaky", "pytest-mypy (>=0.9.1)", "pytest-ruff"]
+
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.8, ^3.9, ^3.10"
-content-hash = "21951da23d7a4f7a730b88a4c2376c9d78c3955711d2a722eb86754a3ace5648"
+python-versions = ">=3.9,<3.13"
+content-hash = "31bb29ed04dbb9f30ed6547097d3a6797f33da0ef61b5a3a2b318d350da5d2c0"

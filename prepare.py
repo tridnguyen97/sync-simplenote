@@ -1,27 +1,36 @@
 from subprocess import check_call
 import os
+from subprocess import CalledProcessError
 
-def build_ui():
-    try:
-        from pyqt_distutils.build_ui import build_ui
-        has_build_ui = True
-    except ImportError:
-        has_build_ui = False
-        print("Try to run `poetry add pyqt_distutils`")
-    if has_build_ui:
-        """Build UI, resources and translations."""
+SUPPORTED_LANGUAGE = ['ca_ES', 'en_US', 'es_ES', 'fr_FR']
+TRANSLATION_DIR = os.path.join(os.getcwd(), 'resources/translations')
+UI_DIR = os.path.join(os.getcwd(), 'resources/views')    
 
-        # build translations
-        check_call(['pylupdate6', 'app.pro'])
+def build_ui(langs=SUPPORTED_LANGUAGE):
+    """Build UI, resources and translations."""
+    for view in os.listdir(UI_DIR):
+        view_dir = os.path.join(UI_DIR, view)
+        if os.path.isfile(view_dir):
+            # build UI, no sub-directories
+            view_module = os.path.join(UI_DIR, f'ui_{view.rstrip(".ui")}.py')
+            try:
+                check_call(['pyside6-uic', view_dir, '-o', view_module])
+            except CalledProcessError as e:
+                print(e.stdout)
+                break
+            # build translations
+            for lang in langs:
+                lang_dir = os.path.join(TRANSLATION_DIR, f'{lang}.ts')
+                binary_dir = os.path.join(TRANSLATION_DIR, f'{lang}.qm')
+                try: 
+                    check_call(['pylupdate6', view_dir, '-ts', lang_dir])
+                    check_call(['pyside6-lrelease', lang_dir, '-qm', binary_dir])
+                except CalledProcessError as e:
+                    print(e.stdout)
+                    break
 
-        lrelease = os.environ.get('LRELEASE_BIN')
-        if not lrelease:
-            lrelease = 'lrelease'
-
-        check_call([lrelease, 'app.pro'])
-
-        # build UI & resources
-        build_ui.run()
+    # build resources
+    check_call(['pyside6-rcc', os.path.join(os.getcwd(), 'resources/resources.qrc')])
 
 def main():
     build_ui()
