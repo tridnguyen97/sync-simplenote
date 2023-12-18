@@ -12,7 +12,7 @@ def build_ui(langs=SUPPORTED_LANGUAGE):
         view_dir = os.path.join(UI_DIR, view)
         if os.path.isfile(view_dir):
             # build UI, no sub-directories
-            view_module = os.path.join(UI_DIR, f'ui_{view.rstrip(".ui")}.py')
+            view_module = os.path.join(UI_DIR, f'{view.rstrip(".ui")}_ui.py')
             try:
                 check_call(['pyside6-uic', view_dir, '-o', view_module])
             except CalledProcessError as e:
@@ -23,14 +23,16 @@ def build_ui(langs=SUPPORTED_LANGUAGE):
                 lang_dir = os.path.join(TRANSLATION_DIR, f'{lang}.ts')
                 binary_dir = os.path.join(TRANSLATION_DIR, f'{lang}.qm')
                 try: 
-                    check_call(['pylupdate6', view_dir, '-ts', lang_dir])
+                    check_call(['pyside6-lupdate', view_dir, '-ts', lang_dir])
                     check_call(['pyside6-lrelease', lang_dir, '-qm', binary_dir])
                 except CalledProcessError as e:
                     print(e.stdout)
                     break
 
     # build resources
-    check_call(['pyside6-rcc', os.path.join(os.getcwd(), 'resources/resources.qrc')])
+    resource_module = os.path.join(os.getcwd(), 'resources/views/resources_rc.py')
+    resource_dir = os.path.join(os.getcwd(), 'resources/resources.qrc')
+    check_call(['pyside6-rcc', resource_dir , '-o', resource_module])
 
 def main():
     build_ui()
