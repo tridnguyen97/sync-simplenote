@@ -830,6 +830,16 @@ files = [
 ]
 
 [[package]]
+name = "simplenote"
+version = "2.1.4"
+description = "Python library for the simplenote.com API"
+optional = false
+python-versions = "*"
+files = [
+    {file = "simplenote-2.1.4.tar.gz", hash = "sha256:81a0ba778a804907d6a530eeca721f19bfa55fe83ce0897f4d16688122f1c432"},
+]
+
+[[package]]
 name = "snowballstemmer"
 version = "2.2.0"
 description = "This package provides 29 stemmers for 28 languages generated from Snowball algorithms."
@@ -1099,4 +1109,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.13"
-content-hash = "533d6296f8f26955725f8d664306141b41215cd56a531d0a71601aaf4cdb096f"
+content-hash = "8790a961b20f12414e4abcfd57b87383f12ce795650b0561f862ea7187765c5e"

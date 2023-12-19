@@ -9,9 +9,24 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../views/MainWindow.ui" line="34"/>
-        <source>HELLO!</source>
-        <translation></translation>
+        <location filename="../views/MainWindow.ui" line="31"/>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../views/MainWindow.ui" line="49"/>
+        <source>username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../views/MainWindow.ui" line="63"/>
+        <source>password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../views/MainWindow.ui" line="86"/>
+        <source>Sync</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
