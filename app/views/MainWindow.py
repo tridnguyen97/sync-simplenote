@@ -55,7 +55,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         except Exception as e:
             print(e)
         done_callback.emit(True)
-        print('done getting note')
+        progress_callback.emit("done getting note")
 
     def on_signin(self):
         try:
@@ -70,6 +70,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 progress_worker = Worker(self.on_get_note)
                 self.thread_pool.start(progress_worker)
                 progress_worker.signals.done.connect(self.load_info_view)
+                progress_worker.signals.progress.connect(self.load_progress)
 
         except simplenote.SimplenoteLoginFailed as err:
             print(err.__traceback__)
@@ -82,3 +83,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 {len(self.note_list)} note has been synced.
             '''
         )
+    
+    @Slot(str)
+    def load_progress(self, progress):
+        self.status_label.setText(progress)

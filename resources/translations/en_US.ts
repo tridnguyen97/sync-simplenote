@@ -28,5 +28,10 @@
         <source>Sync</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../views/MainWindow.ui" line="140"/>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

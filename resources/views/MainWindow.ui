@@ -127,6 +127,19 @@
          <bool>true</bool>
         </property>
        </widget>
+       <widget class="QLabel" name="status_label">
+        <property name="geometry">
+         <rect>
+          <x>18</x>
+          <y>550</y>
+          <width>631</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>None</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="page_3"/>
      </widget>

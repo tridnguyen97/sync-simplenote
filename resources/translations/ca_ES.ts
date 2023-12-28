@@ -29,6 +29,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../views/MainWindow.ui" line="140"/>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>HELLO!</source>
         <translation type="vanished">HOLA!</translation>
     </message>
